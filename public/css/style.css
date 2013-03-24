@@ -1,0 +1,25 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+a {
+  color: #00B7FF;
+}
+div.users-box {
+  float: left;
+  width: 100px;
+  border-right: 1px solid black;
+  height: 300px;
+  padding: 10px;
+  overflow: scroll-y;
+}
+div.conversation-box {
+  float: left;
+  width: 300px;
+  height: 250px;
+  overflow: scroll-y;
+  padding: 10px;
+}
+input#chat-input-box {
+  width: 300px;
+}

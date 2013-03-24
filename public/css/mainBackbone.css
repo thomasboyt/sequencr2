@@ -1,0 +1,404 @@
+/* ==========================================================================
+   HTML5 Boilerplate styles - h5bp.com (generated via initializr.com)
+   ========================================================================== */
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+body {
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+img {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.chromeframe {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+body {
+    background-color: #B1E1FB;
+}
+
+/* testing backbone stuff */
+
+.button {
+    width: 100px;
+    height: 100px;
+    float: left;
+
+    background-color: #fafafa;
+
+    -webkit-transition: background-color 200ms ease;
+    -moz-transition:    background-color 200ms ease;
+    -o-transition:      background-color 200ms ease;
+    -ms-transition:     background-color 200ms ease;
+    transition:         background-color 200ms ease;
+}
+
+    .button:hover {
+        background-color: #ddd;
+    }
+
+    .button.on {
+        background-color: blue;
+    }
+/* ---------------------- */
+
+.devices {
+    float: left;
+    padding: 0 10px;
+}
+
+.transport {
+    float: right;
+    padding: 0 10px;
+}
+
+.instrument {
+    width: 572px;
+    margin: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #9dc299;
+}
+
+.instrument-title {
+    color: white;
+    font-size: 20px;
+    letter-spacing: 0;
+    text-align: left;
+    margin: 10px 0 0 10px;
+
+}
+
+.sequencer-track {
+    margin: 5px 10px 5px 4px;
+}
+
+    .sequencer-track:last-child {
+        margin: 0px 10px 10px 4px;
+    }
+
+.sequencer-button {
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    height: 23px;
+    width:  23px;
+    margin: 0px 0px 0px 6px;
+    float: left;
+    background-color: #fafafa;
+
+    -webkit-transition: background-color 200ms ease;
+    -moz-transition:    background-color 200ms ease;
+    -o-transition:      background-color 200ms ease;
+    -ms-transition:     background-color 200ms ease;
+    transition:         background-color 200ms ease;
+}
+    .sequencer-button:last-child {
+        margin: 10px;
+    }
+    .sequencer-button:hover {
+        background-color: #ddd;
+    }
+
+.mute-button, .solo-button {
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    height: 23px;
+    width:  23px;
+    margin: 0px 0px 0px 6px;
+    float: left;
+}
+
+.mute-button {
+    background-color: red;
+}
+
+.solo-button {
+    background-color: blue;
+}
+
+.sequencer-button.on {
+    background-color: blue;
+}
+
+/*.sequencer-button.currentStep {
+    background-color: green;
+}
+    .sequencer-button:nth-child(4n+1).currentStep {
+        background-color: blue;
+    }*/
+.sequencer-button.on.currentStep {
+    background-color: red;
+}
+/*    .sequencer-button:nth-child(4n+1).on.currentStep {
+        background-color: orange;
+    }*/
+
+.mute-button.on {
+    background-color: red;
+}
+
+.muted {
+    background-color: yellow;
+}
+
+.on.muted {
+    background-color: orange;
+}
+
+.sequencer-button:nth-of-type(4n+1) {
+    width: 21px;
+    height: 21px;
+    border: 2px solid #666;
+}
+
+.playing {
+    background-color: orange;
+}
+
+.play {
+    width: 100px;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #ddd;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.clear {
+    width: 100px;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #ddd;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+
+h1,h2 {
+    text-align: left;
+    font-family: Georgia;
+    color: #fafafa;
+    margin: 0 20px;
+}
+
+h1 {
+    padding-top: 10px;
+    font-size:  50px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+
+    letter-spacing: -3px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+.transport h2 {
+    text-align: center;
+
+}
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+
+}
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* ==========================================================================
+   Print styles
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}

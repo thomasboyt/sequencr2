@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+
+  <title>Guys guess what i made a multi-user button that changes clrs</title>
+  <link rel="stylesheet" href="css/mainNew.css">
+  <!-- import Socket.io -->
+  
+
+  <script src="/socket.io/socket.io.js"></script> 
+
+</head>
+<body>
+
+  <!-- button will appear here -->
+  <div class="container">
+    <h1>SEQUENCR</h1>
+
+    <table id="sequencr">
+      <tbody></tbody>
+    </table>
+    
+    <div id="transport">
+      <div id="play"></div><div id="stop"></div>
+    </div>
+  </div>
+
+  <div id="users">
+    
+  </div>
+  
+    <!-- import jQuery -->
+<!--     
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+ -->
+  <script src="/js/jquery.js"></script>
+
+  <script src="/js/underscore.js"></script>
+  <script src="/js/backbone.js"></script>
+  <script src="/js/socketSetup.js"></script>
+  <script src="/js/main.js"></script>
+
+  <script>
+
+    $(document).ready(function() {
+
+      // create track collection instance
+      track1 = new SQ.Collections.Track();
+      // create trackView instance
+      trackView1 = new SQ.Views.Track({ collection: track1 });
+
+      $('#sequencr tbody').append( trackView1.el );
+    });
+
+  </script>
+
+</body>
+</html>
