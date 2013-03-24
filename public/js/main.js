@@ -1,8 +1,12 @@
 (function(){
 
   // save mouse state for UI stuff
-  
-  var mouseClicked = false;
+  var mouseClicked = false,
+      stateClicked;
+
+  function stateMatches( state ) {
+    return state === stateClicked;
+  }
 
   $(document).mousedown(function() {
     mouseClicked = true;
@@ -14,7 +18,7 @@
 
   var buttonChangeStack = [];
 
-  // implicit globals, cool or no?
+  // global SQ object
   window.SQ = {
     Models      : {},
     Views       : {},
@@ -28,7 +32,8 @@
   SQ.Models.Button = Backbone.Model.extend({
     defaults: {
       on         : false,
-      stepNumber : 0
+      stepNumber : 0,
+      trackNumber: 0
     }
   });
 
@@ -40,16 +45,14 @@
 
     // top level controller
     events: {
-      // 'click' : 'emitToggle',
-      // 'mousedown': 'emitToggle'
-      
-      'mousedown' : 'emitToggle',
+      'mousedown' : 'toggleMousedown',
       'mouseenter': 'toggleMouseenter'
     },
 
     // set up listener to 'change' event
     initialize: function() {
       this.model.on('change', this.render, this);
+      SQ.vent.on('button:toggle', this.toggleButton, this);
     },
 
     // adds/removes class of 'on' to a given button
@@ -60,24 +63,33 @@
 
     emitToggle: function() {
       // send message to server
-      socket.emit('buttonClick', this.model.get('stepNumber'));
+      socket.emit('buttonClick', this.model.get('stepNumber'), this.model.get('trackNumber'));
     },
 
-    toggle: function() {
-      var currentState = this.model.get('on');
-      this.model.set( 'on', !currentState );
+    toggleMousedown: function() {
+      stateClicked = this.model.get('on');
+      this.emitToggle();
     },
 
     toggleMouseenter: function() {
-      if ( mouseClicked ) {
+      if ( mouseClicked && stateMatches(this.model.get('on')) ) {
         this.emitToggle();
       }
+    },
+
+    toggleButton: function( stepNumber, trackNumber ) {
+      if ( this.model.get('stepNumber')      === stepNumber
+        && this.model.get('trackNumber') === trackNumber) {
+        var currentState = this.model.get('on');
+        this.model.set( 'on', !currentState );
+      }
     }
+
   });
 
   // track collection
   SQ.Collections.Track = Backbone.Collection.extend({
-    model: SQ.Models.Button
+    model  : SQ.Models.Button
   });
 
   // track view
@@ -87,11 +99,9 @@
 
     initialize: function() {
 
-      SQ.vent.on('button:toggle', this.toggleButton, this);
-
       // fill the track with buttons
       for (var i = 0; i < 16; i++) {
-        this.collection.push( new SQ.Models.Button({ stepNumber: i }));
+        this.collection.push( new SQ.Models.Button({ stepNumber  : i }));
       } 
 
       // for each button in the collection, create a view 
@@ -99,16 +109,6 @@
         var buttonView = new SQ.Views.Button({ model: button});
         this.$el.append( buttonView.el );
       }, this);
-    },
-
-    toggleButton: function( stepNumber ) {
-      // save for easy reading
-      thisButton = this.collection.models[ stepNumber ];
-      // get current state
-      var currentState = thisButton.get('on');
-      // toggle current state
-      thisButton.set( 'on', !currentState );
-      console.log('it works!');
     }
   });
 })();

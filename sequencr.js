@@ -41,8 +41,8 @@ var usernames = {};
 // run this function when there's a new connection
 io.sockets.on('connection', function( socket ) {
 
-  socket.on('buttonClick', function( stepNumber ) {
-    io.sockets.emit('toggleButton', stepNumber );
+  socket.on('buttonClick', function( stepNumber, trackNumber ) {
+    io.sockets.emit('toggleButton', stepNumber, trackNumber );
   });
 
   // when the client emits 'sendchat', this listens and executes

@@ -9,8 +9,8 @@
   });
 
   // when we receive a 'togglebutton' event, toggle the damn button
-  socket.on('toggleButton', function( stepNumber ) {
-    SQ.vent.trigger('button:toggle', stepNumber );
+  socket.on('toggleButton', function( stepNumber, trackNumber ) {
+    SQ.vent.trigger('button:toggle', stepNumber, trackNumber );
   });
 
   // run when server emits 'updateusers' event
