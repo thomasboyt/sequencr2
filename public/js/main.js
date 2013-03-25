@@ -52,7 +52,9 @@
 
     // set up listener to 'change' event
     initialize: function() {
+
       this.model.on('change', this.render, this);
+
       SQ.vent.on('button:toggle'  , this.toggleButton, this);
       SQ.vent.on('button:playStep', this.playStep    , this);
       SQ.vent.on('button:reset'   , this.resetButton , this);
@@ -63,10 +65,9 @@
       this.model.get('on') ? this.$el.addClass('on') : this.$el.removeClass('on');
 
       if (this.model.get('playing')) {
-        console.log('this button is playing');
         this.$el.addClass('playing');
         var that = this;
-        setTimeout(function(){
+        setTimeout(function() {
           that.model.set('playing', false);
         }, 300);
       } else {
@@ -82,6 +83,7 @@
     },
 
     toggleMousedown: function() {
+      // set stateClicked global
       stateClicked = this.model.get('on');
       this.emitToggle();
     },

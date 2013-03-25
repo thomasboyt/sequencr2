@@ -123,8 +123,8 @@ body {
     box-shadow:0px 1px 1px rgba(255,255,255,0.8) inset, 1px 1px 5px rgba(0,0,0,0.4);
 
     /* positioning */
-    height : 25px;
-    width  : 30px;
+    height : 20px;
+    width  : 25px;
     border: 1px solid #aaa;
     margin: 0;
     float:left;
@@ -172,7 +172,7 @@ body {
 
     /* positioning */
     position:relative;
-    top:2px;
+    top:  3px;
     left: 2px;
 }
 

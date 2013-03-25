@@ -26,8 +26,9 @@
 
     initialize: function() {
       this.model.on('change', this.render, this);
-      SQ.vent.on('player:play', this.play, this);
-      SQ.vent.on('player:stop', this.stop, this);
+
+      SQ.vent.on('player:play'    , this.play    , this);
+      SQ.vent.on('player:stop'    , this.stop    , this);
       SQ.vent.on('player:playStep', this.playStep, this);
     },
 
@@ -41,6 +42,7 @@
     },
 
     play: function() {
+      // var that = this;
       this.player = setInterval( this.triggerPlay, 200 );
     },
 
@@ -53,8 +55,6 @@
 
       SQ.vent.trigger('button:playStep', currentStep);
 
-      console.log('playing, current step is: ' + currentStep );
-
       if (currentStep === 15) {
         this.model.set('currentStep', 0);
       } else {
@@ -63,6 +63,7 @@
     },
 
     emitStop: function() {
+      console.log('emitting stop');
       socket.emit('stop');
     },
 
