@@ -33,47 +33,67 @@
 <!--     
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
  -->
+
+  <script type="text/template" id="player">
+      <button type="button" class="play">PLAY!</button>
+      <button type="button" class="stop">STOP!</button>
+  </script>
+
   <script src="/js/jquery.js"></script>
 
   <script src="/js/underscore.js"></script>
   <script src="/js/backbone.js"></script>
   <script src="/js/socketSetup.js"></script>
   <script src="/js/main.js"></script>
+  <script src="/js/player.js"></script>
 
   <script>
 
     $(document).ready(function() {
 
-      
-
       // create track collection instance
       track1 = new SQ.Collections.Track();
+      track1.number = 1;
       // create trackView instance
       trackView1 = new SQ.Views.Track({ collection: track1 });
 
       $('#sequencr tbody').append( trackView1.el );
 
-      // // create track collection instance
-      // track2 = new SQ.Collections.Track();
-      // // create trackView instance
-      // trackView2 = new SQ.Views.Track({ collection: track2 });
+      // create track collection instance
+      track2 = new SQ.Collections.Track();
+      track2.number = 2;
+      // create trackView instance
+      trackView2 = new SQ.Views.Track({ collection: track2 });
 
-      // $('#sequencr tbody').append( trackView2.el );
+      $('#sequencr tbody').append( trackView2.el );
 
-      // // create track collection instance
-      // track3 = new SQ.Collections.Track();
-      // // create trackView instance
-      // trackView3 = new SQ.Views.Track({ collection: track3 });
+      // create track collection instance
+      track3 = new SQ.Collections.Track();
+      track3.number = 3;
+      // create trackView instance
+      trackView3 = new SQ.Views.Track({ collection: track3 });
 
-      // $('#sequencr tbody').append( trackView3.el );
+      $('#sequencr tbody').append( trackView3.el );
 
-      // // create track collection instance
-      // track4 = new SQ.Collections.Track();
-      // // create trackView instance
-      // trackView4 = new SQ.Views.Track({ collection: track4 });
+      // create track collection instance
+      track4 = new SQ.Collections.Track();
+      track4.number = 4;
+      // create trackView instance
+      trackView4 = new SQ.Views.Track({ collection: track4 });
 
-      // $('#sequencr tbody').append( trackView4.el );
-      
+      $('#sequencr tbody').append( trackView4.el );
+
+        // create the only instance of player
+      player = new SQ.Models.Player({
+        currentStep: 0
+      }); 
+
+      // create the only instance of playerView
+      playerView = new SQ.Views.Player({
+        model: player
+      });
+
+      $('.container').append( playerView.render().el );
     });
 
   </script>

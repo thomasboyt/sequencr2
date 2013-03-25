@@ -13,6 +13,14 @@
     SQ.vent.trigger('button:toggle', stepNumber, trackNumber );
   });
 
+  socket.on('play', function() {
+    SQ.vent.trigger('player:play');
+  });
+
+  socket.on('stop', function() {
+    SQ.vent.trigger('player:stop');
+  });
+
   // run when server emits 'updateusers' event
   socket.on('updateusers', function( data ) {
     // clear the user list

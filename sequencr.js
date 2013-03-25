@@ -45,6 +45,14 @@ io.sockets.on('connection', function( socket ) {
     io.sockets.emit('toggleButton', stepNumber, trackNumber );
   });
 
+  socket.on('play', function() {
+    io.sockets.emit('play');
+  });
+
+  socket.on('stop', function() {
+    io.sockets.emit('stop');
+  });
+
   // when the client emits 'sendchat', this listens and executes
   socket.on('sendchat', function( data ) {
     // we tell the client to execute 'updatechat' with 2 parameters
